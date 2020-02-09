@@ -35,7 +35,6 @@ module.exports = {
     async logIn(req, res) {
         console.log('olha o login')
         const { login, pswd } = req.body;
-        console.log(login, pswd)
         const adm = await Adm.findOne({ "login": login });
 
         try {
