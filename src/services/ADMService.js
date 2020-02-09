@@ -20,7 +20,7 @@ module.exports = {
                 login,
                 pswd: hashedPswd
             });
-            const token = jwt.sign({ id: newAdm._id }, process.env.secret, {
+            const token = jwt.sign({ id: newAdm._id }, process.env.SECRET, {
                 expiresIn: 600
             });
 
@@ -41,7 +41,7 @@ module.exports = {
         try {
             const pswdValid = await bcrypt.compare(pswd, adm.pswd);
             if (pswdValid) {
-                const token = jwt.sign({ id: adm._id }, process.env.secret, {
+                const token = jwt.sign({ id: adm._id }, process.env.SECRET, {
                     expiresIn: 6000
                 });
                 return res.status(200).send({ auth: true, token });
