@@ -7,6 +7,7 @@ module.exports = {
         console.log( token)
         if (!token) return res.status(401).send({ auth: false, message: 'Sem token.' });
         // decoded é o resultado do jwt.verify
+        console.log("teste se pega " + process.env.secret)
         jwt.verify(token, process.env.secret, (err, decoded) => {
             if (err) return res.status(403).send({ auth: false, message: 'falha ao autenticar o token.' });
 
